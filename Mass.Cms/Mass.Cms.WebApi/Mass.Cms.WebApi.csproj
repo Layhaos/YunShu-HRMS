@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NuGetAudit>false</NuGetAudit>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="9.3.4" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="11.0.2" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.12">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="11.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mass.Cms.EntityFrameworkCore\Mass.Cms.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Mass.Cms.Entity\Mass.Cms.Entity.csproj" />
+    <ProjectReference Include="..\Mass.Cms.IRepository\Mass.Cms.IRepository.csproj" />
+    <ProjectReference Include="..\Mass.Cms.IService\Mass.Cms.IService.csproj" />
+    <ProjectReference Include="..\Mass.Cms.Repository\Mass.Cms.Repository.csproj" />
+    <ProjectReference Include="..\Mass.Cms.Service\Mass.Cms.Service.csproj" />
+  </ItemGroup>
+
+</Project>

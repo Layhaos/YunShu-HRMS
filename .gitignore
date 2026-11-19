@@ -1,0 +1,15 @@
+# .NET 构建产物
+bin/
+obj/
+.vs/
+publish/
+*.user
+*.suo
+
+# 前端构建产物与依赖
+node_modules/
+dist/
+
+# 日志与临时文件
+*.log
+*.tmp

@@ -1,0 +1,69 @@
+/* ============================================================
+   全局样式封装（在 main.js 里 import，全站生效）
+   两层设计：
+   ① CSS 变量（--xxx）：颜色/圆角/阴影这些"设计参数"只定义一次，
+      组件里一律 var(--xxx) 引用——以后换主题色改这一处即可
+   ② 通用骨架类：页面级排版不重写——列表页直接套
+      .page-container > .page-header + .page-card
+   ============================================================ */
+
+/* ---------- ① 设计变量 ---------- */
+:root {
+    /* 背景 */
+    --page-bg: #f5f7fa;          /* 内容区浅灰底 */
+    --sidebar-bg: #304156;       /* 侧边栏深蓝灰 */
+
+    /* 卡片 */
+    --card-bg: #ffffff;
+    --card-radius: 8px;
+    --card-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+    --card-padding: 24px;
+
+    /* 文字（沿用 element-plus 的三级灰） */
+    --text-main: #303133;
+    --text-regular: #606266;
+    --text-sub: #909399;
+    --border-color: #ebeef5;
+
+    /* 主题色（与 element-plus 主蓝对齐） */
+    --primary: #409eff;
+}
+
+/* ---------- ② 基础打底 ---------- */
+body {
+    margin: 0;
+    background: var(--page-bg);
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC",
+        "Microsoft YaHei", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- ③ 页面通用骨架 ---------- */
+/* 页面最外层：负责留白 */
+.page-container {
+    padding: 20px;
+}
+
+/* 页头：大标题 + 一句说明（可省） */
+.page-header {
+    margin-bottom: 16px;
+}
+.page-title {
+    margin: 0 0 4px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+.page-desc {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-sub);
+}
+
+/* 白卡片：正式列表页的内容容器（圆角+浅阴影，简约商务感的来源） */
+.page-card {
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    padding: var(--card-padding);
+}

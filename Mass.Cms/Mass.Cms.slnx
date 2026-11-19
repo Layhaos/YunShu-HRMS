@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="Mass.Cms.Entity/Mass.Cms.Entity.csproj" />
+  <Project Path="Mass.Cms.EntityFrameworkCore/Mass.Cms.EntityFrameworkCore.csproj" />
+  <Project Path="Mass.Cms.IRepository/Mass.Cms.IRepository.csproj" />
+  <Project Path="Mass.Cms.IService/Mass.Cms.IService.csproj" />
+  <Project Path="Mass.Cms.Repository/Mass.Cms.Repository.csproj" />
+  <Project Path="Mass.Cms.Service/Mass.Cms.Service.csproj" />
+  <Project Path="Mass.Cms.Web/Mass.Cms.Web.csproj" />
+  <Project Path="Mass.Cms.WebApi/Mass.Cms.WebApi.csproj" />
+</Solution>
