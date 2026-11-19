@@ -24,6 +24,12 @@ namespace Mass.Cms.EntityFrameworkCore
         public DbSet<PermissionMenu> PermissionMenus { get; set; }
 
         public DbSet<PermissionPoint> PermissionPoints { get; set; }
+
+        //M03 考勤模块：考勤记录 + 请假/加班申请单
+        public DbSet<Attendance> Attendances { get; set; }
+
+        public DbSet<LeaveApplication> LeaveApplications { get; set; }
+
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

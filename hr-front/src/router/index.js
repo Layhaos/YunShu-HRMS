@@ -4,6 +4,7 @@ import department from "./modules/department.js"
 import permission from "./modules/permission.js"
 import role from "./modules/role.js"
 import user from "./modules/user.js"
+import attendance from "./modules/attendance.js"
 
 // ★ ⑭ 阶段C 改造：路由表分两个池子
 //staticRoutes：人人可见——登录页 + 首页壳（首页不做权限控制，练习版约定）
@@ -21,7 +22,7 @@ const staticRoutes = [
 // 注册靠前的话，/:pathMatch(.*)* 会拦住后挂的动态路由（刷新就 404）
 // ——挂载动作在守卫 checkAuthentication.js 的【你写区】里
 
-const asyncRoutes = [department, permission, role, user];
+const asyncRoutes = [department, permission, role, user, attendance];
 
 // createRouter 只装静态的——动态的等守卫拿到权限编码、过滤完再逐个 addRoute
 const routes = [...staticRoutes]

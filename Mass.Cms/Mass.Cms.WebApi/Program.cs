@@ -62,7 +62,34 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 //Swagger 的两件套：探测器 + 生成器
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    //JWT 授权头配置：给 Swagger 右上角加"Authorize"按钮
+    //没有这三段，[Authorize] 的接口在 Swagger 里连输 token 的地方都没有（之前一直靠脚本/前端带 token 测试）
+    options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        Description = "粘贴登录接口返回的 token（不用手写 Bearer 前缀）"
+    });
+    options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+            {
+                Reference = new Microsoft.OpenApi.Models.OpenApiReference
+                {
+                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 
 //数据库：每个 HTTP 请求从容器领一个全新的 MyDbContext（注入的是 DbContextOptions，里面带着连接串）
 builder.Services.AddDbContext<MyDbContext>(sp =>
